@@ -7,57 +7,65 @@
 </head>
 <body>
 
-<header>
-    <div class="logo">📚 Книжный лабиринт</div>
+<header class="header-container">
+    <div class="logo">
+        <a href="index.html">📚 Книжный лабиринт</a>
+    </div>
     <nav>
-        <a href="index.html">Главная</a>
-        <a href="about.html">О нас</a>
-        <a href="form.html">Форма обратной связи</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="form.html">Форма обратной связи</a></li>
+        </ul>
     </nav>
 </header>
 
 <main>
     <h1>📖 Оформление заказа</h1>
     
-    <form action="#" method="post">
-        <div>
-            <label>ФИО покупателя:</label><br>
+    <form action="#" method="post" class="form-container">
+        <div class="form-group">
+            <label>ФИО покупателя:</label>
             <input type="text" name="fullname" required>
         </div>
         
-        <div>
-            <label>Адрес доставки:</label><br>
+        <div class="form-group">
+            <label>Адрес доставки:</label>
             <input type="text" name="address" required>
         </div>
         
-        <div>
-            <label>Телефон:</label><br>
+        <div class="form-group">
+            <label>Телефон:</label>
             <input type="tel" name="phone">
         </div>
         
-        <div>
-            <label>Адрес электронной почты:</label><br>
+        <div class="form-group">
+            <label>Адрес электронной почты:</label>
             <input type="email" name="email">
         </div>
         
-        <div>
-            <label>📚 Книги для покупки (флажки):</label><br>
-            <label><input type="checkbox" name="books" value="Преступление и наказание"> Преступление и наказание</label><br>
-            <label><input type="checkbox" name="books" value="Мастер и Маргарита"> Мастер и Маргарита</label><br>
-            <label><input type="checkbox" name="books" value="Гордость и предубеждение"> Гордость и предубеждение</label><br>
-            <label><input type="checkbox" name="books" value="1984"> 1984</label><br>
-            <label><input type="checkbox" name="books" value="Война и мир"> Война и мир</label><br>
-            <label><input type="checkbox" name="books" value="Улисс"> Улисс</label>
+        <div class="form-group">
+            <label>📚 Книги для покупки (флажки):</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="books" value="Преступление и наказание"> Преступление и наказание</label>
+                <label><input type="checkbox" name="books" value="Мастер и Маргарита"> Мастер и Маргарита</label>
+                <label><input type="checkbox" name="books" value="Гордость и предубеждение"> Гордость и предубеждение</label>
+                <label><input type="checkbox" name="books" value="1984"> 1984</label>
+                <label><input type="checkbox" name="books" value="Война и мир"> Война и мир</label>
+                <label><input type="checkbox" name="books" value="Улисс"> Улисс</label>
+            </div>
         </div>
         
-        <div>
-            <label>Форма оплаты (селекторные переключатели):</label><br>
-            <label><input type="radio" name="payment" value="cash"> Наличными при получении</label>
-            <label><input type="radio" name="payment" value="card"> Картой при получении</label>
+        <div class="form-group">
+            <label>Форма оплаты (селекторные переключатели):</label>
+            <div class="radio-group">
+                <label><input type="radio" name="payment" value="cash"> Наличными при получении</label>
+                <label><input type="radio" name="payment" value="card"> Картой при получении</label>
+            </div>
         </div>
         
-        <div>
-            <label>Выберите день доставки (выпадающий список):</label><br>
+        <div class="form-group">
+            <label>Выберите день доставки (выпадающий список):</label>
             <select name="delivery_day">
                 <option>Понедельник</option>
                 <option>Среда</option>
@@ -65,21 +73,26 @@
             </select>
         </div>
         
-        <div>
-            <label>Комментарий курьеру (многострочное поле ввода):</label><br>
+        <div class="form-group">
+            <label>Комментарий курьеру (многострочное поле ввода):</label>
             <textarea rows="3" name="comment" placeholder="Домофон, этаж, особые пожелания..."></textarea>
         </div>
         
-        <div>
+        <div class="form-buttons">
             <button type="submit">Заказать</button>
             <button type="reset">Очистить форму</button>
         </div>
     </form>
 </main>
 
-<footer>
-    <div><a href="https://miet.ru" target="_blank">🏫 НИУ МИЭТ</a></div>
-    <div><a href="about.html">О нас</a> | <a href="form.html">Форма обратной связи</a></div>
+<footer class="footer-container">
+    <div class="footer-logo">
+        <a href="https://miet.ru" target="_blank">🏫 НИУ МИЭТ</a>
+    </div>
+    <div class="footer-links">
+        <a href="about.html">О нас</a>
+        <a href="form.html">Форма обратной связи</a>
+    </div>
 </footer>
 
 </body>

@@ -7,12 +7,16 @@
 </head>
 <body>
 
-<header>
-    <div class="logo">📚 Книжный лабиринт</div>
+<header class="header-container">
+    <div class="logo">
+        <a href="index.html">📚 Книжный лабиринт</a>
+    </div>
     <nav>
-        <a href="index.html">Главная</a>
-        <a href="about.html">О нас</a>
-        <a href="form.html">Форма обратной связи</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="form.html">Форма обратной связи</a></li>
+        </ul>
     </nav>
 </header>
 
@@ -22,7 +26,7 @@
     
     <div class="cards-grid">
         <figure class="card">
-            📘
+            <div style="font-size: 3rem;">📘</div>
             <figcaption>
                 <h3>Преступление и наказание</h3>
                 <p>Ф.М. Достоевский | Роман, классика</p>
@@ -31,7 +35,7 @@
         </figure>
         
         <figure class="card">
-            📖
+            <div style="font-size: 3rem;">📖</div>
             <figcaption>
                 <h3>Мастер и Маргарита</h3>
                 <p>Михаил Булгаков | Мистика, роман</p>
@@ -40,7 +44,7 @@
         </figure>
         
         <figure class="card">
-            💕📘
+            <div style="font-size: 3rem;">💕📘</div>
             <figcaption>
                 <h3>Гордость и предубеждение</h3>
                 <p>Джейн Остин | Роман, классика</p>
@@ -49,7 +53,7 @@
         </figure>
         
         <figure class="card">
-            👁️📘
+            <div style="font-size: 3rem;">👁️📘</div>
             <figcaption>
                 <h3>1984</h3>
                 <p>Джордж Оруэлл | Антиутопия</p>
@@ -58,7 +62,7 @@
         </figure>
         
         <figure class="card">
-            ⚔️📘
+            <div style="font-size: 3rem;">⚔️📘</div>
             <figcaption>
                 <h3>Война и мир</h3>
                 <p>Лев Толстой | Эпопея</p>
@@ -67,7 +71,7 @@
         </figure>
         
         <figure class="card">
-            🌊📘
+            <div style="font-size: 3rem;">🌊📘</div>
             <figcaption>
                 <h3>Улисс</h3>
                 <p>Джеймс Джойс | Модернизм</p>
@@ -77,9 +81,14 @@
     </div>
 </main>
 
-<footer>
-    <div><a href="https://miet.ru" target="_blank">🏫 НИУ МИЭТ</a></div>
-    <div><a href="about.html">О нас</a> | <a href="form.html">Форма обратной связи</a></div>
+<footer class="footer-container">
+    <div class="footer-logo">
+        <a href="https://miet.ru" target="_blank">🏫 НИУ МИЭТ</a>
+    </div>
+    <div class="footer-links">
+        <a href="about.html">О нас</a>
+        <a href="form.html">Форма обратной связи</a>
+    </div>
 </footer>
 
 </body>
