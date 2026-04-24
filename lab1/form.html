@@ -23,66 +23,74 @@
 <main>
     <h1>📖 Оформление заказа</h1>
     
-    <form action="#" method="post" class="form-container">
-        <div class="form-group">
-            <label>ФИО покупателя:</label>
-            <input type="text" name="fullname" required>
-        </div>
-        
-        <div class="form-group">
-            <label>Адрес доставки:</label>
-            <input type="text" name="address" required>
-        </div>
-        
-        <div class="form-group">
-            <label>Телефон:</label>
-            <input type="tel" name="phone">
-        </div>
-        
-        <div class="form-group">
-            <label>Адрес электронной почты:</label>
-            <input type="email" name="email">
-        </div>
-        
-        <div class="form-group">
-            <label>📚 Книги для покупки (флажки):</label>
-            <div class="checkbox-group">
-                <label><input type="checkbox" name="books" value="Преступление и наказание"> Преступление и наказание</label>
-                <label><input type="checkbox" name="books" value="Мастер и Маргарита"> Мастер и Маргарита</label>
-                <label><input type="checkbox" name="books" value="Гордость и предубеждение"> Гордость и предубеждение</label>
-                <label><input type="checkbox" name="books" value="1984"> 1984</label>
-                <label><input type="checkbox" name="books" value="Война и мир"> Война и мир</label>
-                <label><input type="checkbox" name="books" value="Улисс"> Улисс</label>
+    <form id="orderForm" action="#" method="post">
+        <div class="form-container">
+            <div class="form-group">
+                <label>ФИО покупателя:</label>
+                <input type="text" id="fullname" name="fullname" required>
             </div>
-        </div>
-        
-        <div class="form-group">
-            <label>Форма оплаты (селекторные переключатели):</label>
-            <div class="radio-group">
-                <label><input type="radio" name="payment" value="cash"> Наличными при получении</label>
-                <label><input type="radio" name="payment" value="card"> Картой при получении</label>
+            
+            <div class="form-group">
+                <label>Адрес доставки:</label>
+                <input type="text" id="address" name="address" required>
             </div>
-        </div>
-        
-        <div class="form-group">
-            <label>Выберите день доставки (выпадающий список):</label>
-            <select name="delivery_day">
-                <option>Понедельник</option>
-                <option>Среда</option>
-                <option>Пятница</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label>Комментарий курьеру (многострочное поле ввода):</label>
-            <textarea rows="3" name="comment" placeholder="Домофон, этаж, особые пожелания..."></textarea>
-        </div>
-        
-        <div class="form-buttons">
-            <button type="submit">Заказать</button>
-            <button type="reset">Очистить форму</button>
+            
+            <div class="form-group">
+                <label>Телефон (формат: +7(XXX)XXX-XX-XX):</label>
+                <input type="tel" id="phone" name="phone" placeholder="+7(123)456-78-90">
+            </div>
+            
+            <div class="form-group">
+                <label>Адрес электронной почты:</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.ru">
+            </div>
+            
+            <div class="form-group">
+                <label>📚 Книги для покупки (флажки):</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="books" value="Преступление и наказание"> Преступление и наказание</label>
+                    <label><input type="checkbox" name="books" value="Мастер и Маргарита"> Мастер и Маргарита</label>
+                    <label><input type="checkbox" name="books" value="Гордость и предубеждение"> Гордость и предубеждение</label>
+                    <label><input type="checkbox" name="books" value="1984"> 1984</label>
+                    <label><input type="checkbox" name="books" value="Война и мир"> Война и мир</label>
+                    <label><input type="checkbox" name="books" value="Улисс"> Улисс</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Форма оплаты (селекторные переключатели):</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="payment" value="Наличными при получении"> Наличными при получении</label>
+                    <label><input type="radio" name="payment" value="Картой при получении"> Картой при получении</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Выберите день доставки (выпадающий список):</label>
+                <select id="deliveryDay" name="delivery_day">
+                    <option value="Понедельник">Понедельник</option>
+                    <option value="Среда">Среда</option>
+                    <option value="Пятница">Пятница</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Комментарий курьеру (многострочное поле ввода):</label>
+                <textarea id="comment" rows="3" name="comment" placeholder="Домофон, этаж, особые пожелания..."></textarea>
+            </div>
+            
+            <div class="form-buttons">
+                <button type="submit" id="submitBtn">Заказать</button>
+                <button type="reset" id="resetBtn">Очистить форму</button>
+            </div>
         </div>
     </form>
+    
+    <!-- Контейнер для карточек заказов -->
+    <h2 class="orders-title">📋 История ваших заказов</h2>
+    <div id="ordersContainer" class="orders-container">
+        <div class="empty-message">Пока нет оформленных заказов. Заполните форму выше!</div>
+    </div>
 </main>
 
 <footer class="footer-container">
@@ -94,6 +102,239 @@
         <a href="form.html">Форма обратной связи</a>
     </div>
 </footer>
+
+<script>
+    
+    const form = document.getElementById('orderForm');
+    const fullnameInput = document.getElementById('fullname');
+    const addressInput = document.getElementById('address');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const ordersContainer = document.getElementById('ordersContainer');
+    
+                      
+    function validatePhone(phone) {
+        const phoneRegex = /^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$/;
+        if (!phoneRegex.test(phone)) {
+            return false;
+        }
+        const digits = phone.replace(/[^\d]/g, '');
+        return digits.length === 11;
+    }
+    
+      
+    function validateEmail(email) {
+        // Проверяем наличие @ и точки после @
+        const atIndex = email.indexOf('@');
+        if (atIndex === -1) return false;
+        const afterAt = email.substring(atIndex + 1);
+        const dotIndex = afterAt.indexOf('.');
+        if (dotIndex === -1) return false;
+        if (dotIndex === 0 || dotIndex === afterAt.length - 1) return false;
+        return true;
+    }
+    
+    
+    function isAnyBookSelected() {
+        const bookCheckboxes = document.querySelectorAll('input[name="books"]');
+        for (let checkbox of bookCheckboxes) {
+            if (checkbox.checked) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
+    function isPaymentSelected() {
+        const paymentRadios = document.querySelectorAll('input[name="payment"]');
+        for (let radio of paymentRadios) {
+            if (radio.checked) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
+    function getSelectedBooks() {
+        const bookCheckboxes = document.querySelectorAll('input[name="books"]');
+        const selected = [];
+        for (let checkbox of bookCheckboxes) {
+            if (checkbox.checked) {
+                selected.push(checkbox.value);
+            }
+        }
+        return selected;
+    }
+    
+    
+    function getSelectedPayment() {
+        const paymentRadios = document.querySelectorAll('input[name="payment"]');
+        for (let radio of paymentRadios) {
+            if (radio.checked) {
+                return radio.value;
+            }
+        }
+        return 'Не выбран';
+    }
+    
+   
+    function createOrderCard(orderData) {
+        const card = document.createElement('div');
+        card.className = 'order-card';
+        
+        
+        let booksHtml = '';
+        if (orderData.books.length > 0) {
+            booksHtml = '<ul class="books-list">';
+            for (let book of orderData.books) {
+                booksHtml += `<li>📖 ${book}</li>`;
+            }
+            booksHtml += '</ul>';
+        } else {
+            booksHtml = '<p><em>Книги не выбраны</em></p>';
+        }
+        
+        
+        card.innerHTML = `
+            <h4>📌 Заказ №${orderData.orderNumber}</h4>
+            <p><strong>👤 Покупатель:</strong> ${escapeHtml(orderData.fullname)}</p>
+            <p><strong>📍 Адрес доставки:</strong> ${escapeHtml(orderData.address)}</p>
+            <p><strong>📞 Телефон:</strong> ${escapeHtml(orderData.phone)}</p>
+            <p><strong>✉️ Email:</strong> ${escapeHtml(orderData.email)}</p>
+            <p><strong>📚 Выбранные книги:</strong></p>
+            ${booksHtml}
+            <p><strong>💳 Форма оплаты:</strong> ${escapeHtml(orderData.payment)}</p>
+            <p><strong>📅 День доставки:</strong> ${escapeHtml(orderData.deliveryDay)}</p>
+            <p><strong>💬 Комментарий курьеру:</strong> ${escapeHtml(orderData.comment) || '—'}</p>
+            <div class="order-date">🕒 Оформлен: ${orderData.date}</div>
+        `;
+        
+        return card;
+    }
+    
+    
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+    
+    
+    function validateAndSubmit(event) {
+        event.preventDefault(); 
+        
+        // 1. Проверка на незаполненные поля
+        if (!fullnameInput.value.trim()) {
+            alert('Ошибка! Не введена фамилия и имя!');
+            fullnameInput.focus();
+            return false;
+        }
+        
+        if (!addressInput.value.trim()) {
+            alert('Ошибка! Не введён адрес доставки!');
+            addressInput.focus();
+            return false;
+        }
+        
+        if (!phoneInput.value.trim()) {
+            alert('Ошибка! Не введён номер телефона!');
+            phoneInput.focus();
+            return false;
+        }
+        
+        if (!emailInput.value.trim()) {
+            alert('Ошибка! Не введён адрес электронной почты!');
+            emailInput.focus();
+            return false;
+        }
+        
+        
+        if (!validatePhone(phoneInput.value.trim())) {
+            alert('Ошибка! Телефон должен быть в формате +7(XXX)XXX-XX-XX\nПример: +7(123)456-78-90');
+            phoneInput.focus();
+            return false;
+        }
+        
+        
+        if (!validateEmail(emailInput.value.trim())) {
+            alert('Ошибка! Email должен содержать символ "@" и точку после него.\nПример: user@mail.ru');
+            emailInput.focus();
+            return false;
+        }
+        
+        
+        if (!isAnyBookSelected()) {
+            alert('Ошибка! Выберите хотя бы одну книгу для покупки!');
+            return false;
+        }
+        
+        
+        if (!isPaymentSelected()) {
+            alert('Ошибка! Выберите способ оплаты!');
+            return false;
+        }
+        
+        
+        const selectedBooks = getSelectedBooks();
+        const selectedPayment = getSelectedPayment();
+        
+        
+        const emptyMessage = ordersContainer.querySelector('.empty-message');
+        if (emptyMessage) {
+            emptyMessage.remove();
+        }
+        
+        
+        const existingCards = ordersContainer.querySelectorAll('.order-card');
+        const orderNumber = existingCards.length + 1;
+        
+        
+        const orderData = {
+            orderNumber: orderNumber,
+            fullname: fullnameInput.value.trim(),
+            address: addressInput.value.trim(),
+            phone: phoneInput.value.trim(),
+            email: emailInput.value.trim(),
+            books: selectedBooks,
+            payment: selectedPayment,
+            deliveryDay: document.getElementById('deliveryDay').value,
+            comment: document.getElementById('comment').value.trim(),
+            date: new Date().toLocaleString('ru-RU')
+        };
+        
+        
+        const newCard = createOrderCard(orderData);
+        ordersContainer.appendChild(newCard);
+        
+       
+        form.reset();
+        
+       
+        newCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+       
+        alert('✅ Заказ успешно оформлен! Карточка добавлена ниже.');
+        
+        return true;
+    }
+    
+    
+    form.addEventListener('submit', validateAndSubmit);
+    
+    
+    const resetBtn = document.getElementById('resetBtn');
+    resetBtn.addEventListener('click', function(e) {
+        if (confirm('Вы действительно хотите очистить все поля формы?')) {
+            form.reset();
+        }
+    });
+</script>
 
 </body>
 </html>

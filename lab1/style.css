@@ -1,5 +1,3 @@
-/* ========== ОСНОВНЫЕ СТИЛИ ДЛЯ ВСЕХ СТРАНИЦ ========== */
-
 * {
     margin: 0;
     padding: 0;
@@ -16,9 +14,6 @@ body {
     flex-direction: column;
 }
 
-/* ========== HEADER - Flex контейнер ========== */
-/* Логотип и панель навигации прижаты к противоположным сторонам */
-/* Элементы выровнены по вертикали */
 
 .header-container {
     background-color: #1a3a3a;
@@ -27,8 +22,8 @@ body {
     border-bottom: 5px double #c9a03d;
     margin-bottom: 30px;
     display: flex;
-    justify-content: space-between;  /* прижаты к противоположным сторонам */
-    align-items: center;             /* выравнивание по вертикали */
+    justify-content: space-between;  
+    align-items: center;            
     flex-wrap: wrap;
 }
 
@@ -46,10 +41,10 @@ body {
     color: #c9a03d;
 }
 
-/* Панель навигации - ссылки на одной строке, между ними расстояние */
+
 .nav-links {
     display: flex;
-    gap: 25px;           /* расстояние между ссылками */
+    gap: 25px;           
     list-style: none;
     flex-wrap: wrap;
 }
@@ -66,7 +61,7 @@ body {
     text-decoration: underline;
 }
 
-/* ========== ОСНОВНОЙ КОНТЕНТ ========== */
+
 
 main {
     background-color: #ffffff;
@@ -80,7 +75,7 @@ main {
     flex: 1;
 }
 
-/* Заголовки */
+
 h1 {
     color: #1a3a3a;
     font-family: 'Georgia', 'Times New Roman', Times, serif;
@@ -107,12 +102,11 @@ h3 {
     margin: 15px 0 10px 0;
 }
 
-/* ========== КАРТОЧКИ ТОВАРОВ (ГЛАВНАЯ СТРАНИЦА) ========== */
-/* Flex-контейнер для карточек */
+
 
 .cards-grid {
     display: flex;
-    flex-wrap: wrap;        /* перенос карточек на следующую строку */
+    flex-wrap: wrap;        
     gap: 25px;
     justify-content: center;
     margin-top: 20px;
@@ -126,10 +120,10 @@ h3 {
     padding: 15px;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
-    min-width: 280px;       /* минимальная ширина карточки */
-    max-width: 350px;       /* максимальная ширина карточки */
+    min-width: 280px;       
+    max-width: 350px;       
     width: 100%;
-    flex: 1 1 280px;        /* flex-grow, flex-shrink, flex-basis */
+    flex: 1 1 280px;        
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -154,7 +148,7 @@ h3 {
     margin-bottom: 12px;
 }
 
-/* Адаптивность для маленьких экранов */
+
 @media (max-width: 700px) {
     .card {
         min-width: 240px;
@@ -167,7 +161,7 @@ h3 {
     }
 }
 
-/* ========== СТИЛИ ДЛЯ ТАБЛИЦ ========== */
+
 
 table {
     width: 100%;
@@ -211,7 +205,7 @@ tr:nth-child(even) td:not(:first-child) {
     background-color: #f5efe5;
 }
 
-/* ========== СТИЛИ ДЛЯ ГИПЕРССЫЛОК (псевдоклассы) ========== */
+
 
 a:link {
     color: #1a5a5a;
@@ -277,12 +271,12 @@ a:active {
     color: white;
 }
 
-/* ========== ФОРМА (flex-direction: column) ========== */
+
 
 .form-container {
     display: flex;
-    flex-direction: column;   /* вертикальное расположение */
-    gap: 20px;               /* отступы между блоками с input */
+    flex-direction: column;   
+    gap: 20px;               
 }
 
 .form-group {
@@ -336,11 +330,11 @@ a:active {
     gap: 5px;
 }
 
-/* Кнопки формы - выровнены по правому краю */
+
 .form-buttons {
     display: flex;
     gap: 15px;
-    justify-content: flex-end;  /* кнопки прижаты к правому краю */
+    justify-content: flex-end;  
     margin-top: 10px;
 }
 
@@ -370,7 +364,7 @@ a:active {
     color: #1a3a3a;
 }
 
-/* ========== FOOTER (аналогично Header) ========== */
+
 
 .footer-container {
     background-color: #1a3a3a;
@@ -379,8 +373,8 @@ a:active {
     border-top: 5px double #c9a03d;
     margin-top: 30px;
     display: flex;
-    justify-content: space-between;  /* элементы прижаты к противоположным сторонам */
-    align-items: center;             /* выравнивание по вертикали */
+    justify-content: space-between; 
+    align-items: center;            
     flex-wrap: wrap;
     gap: 15px;
 }
@@ -398,7 +392,7 @@ a:active {
 
 .footer-links {
     display: flex;
-    gap: 25px;           /* расстояние между ссылками */
+    gap: 25px;         
     flex-wrap: wrap;
 }
 
@@ -412,7 +406,7 @@ a:active {
     text-decoration: underline;
 }
 
-/* Адаптивность для мобильных устройств */
+
 @media (max-width: 600px) {
     .header-container {
         flex-direction: column;
@@ -443,4 +437,92 @@ a:active {
     .form-group textarea {
         max-width: 100%;
     }
+}
+.orders-container {
+    display: flex;
+    flex-direction: column;     /* вертикальная ориентация */
+    gap: 20px;                  /* отступы между карточками */
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f0ebe0;
+    border-radius: 12px;
+    min-height: 200px;
+}
+
+/* Стиль карточки заказа */
+.order-card {
+    background: linear-gradient(135deg, #ffffff 0%, #fefaf5 100%);
+    border-left: 6px solid #c9a03d;
+    border-radius: 12px;
+    padding: 18px 22px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.order-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Заголовок карточки */
+.order-card h4 {
+    color: #1a3a3a;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px dotted #c9a03d;
+}
+
+/* Информационные строки карточки */
+.order-card p {
+    margin: 8px 0;
+    color: #2c2b28;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.order-card strong {
+    color: #1a5a5a;
+    font-weight: bold;
+}
+
+/* Книги в карточке */
+.order-card .books-list {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.order-card .books-list li {
+    margin: 3px 0;
+    color: #3a6b6b;
+}
+
+/* Дата создания карточки */
+.order-card .order-date {
+    font-size: 0.75rem;
+    color: #8b7a5a;
+    margin-top: 12px;
+    text-align: right;
+    font-style: italic;
+}
+
+/* Заголовок для контейнера */
+.orders-title {
+    color: #1a3a3a;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+    margin: 25px 0 10px 0;
+    text-align: center;
+    border-top: 2px solid #c9a03d;
+    padding-top: 20px;
+}
+
+/* Сообщение, если нет заказов */
+.empty-message {
+    text-align: center;
+    color: #8b7a5a;
+    font-style: italic;
+    padding: 30px;
 }
