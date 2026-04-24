@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Форма заказа | Книжный лабиринт</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <div><a href="index.html">📚 Книжный лабиринт</a></div>
+    <div class="logo">📚 Книжный лабиринт</div>
     <nav>
-        <a href="about.html">О нас</a> | <a href="form.html">Форма обратной связи</a>
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="form.html">Форма обратной связи</a>
     </nav>
 </header>
 
@@ -18,47 +21,43 @@
     
     <form action="#" method="post">
         <div>
-            <label>ФИО покупателя:</label>
+            <label>ФИО покупателя:</label><br>
             <input type="text" name="fullname" required>
         </div>
         
         <div>
-            <label>Адрес доставки:</label>
+            <label>Адрес доставки:</label><br>
             <input type="text" name="address" required>
         </div>
         
         <div>
-            <label>Телефон:</label>
+            <label>Телефон:</label><br>
             <input type="tel" name="phone">
         </div>
         
         <div>
-            <label>Адрес электронной почты:</label>
+            <label>Адрес электронной почты:</label><br>
             <input type="email" name="email">
         </div>
         
         <div>
-            <label>📚 Книги для покупки (флажки):</label>
-            <div>
-                <label><input type="checkbox" name="books" value="Преступление и наказание"> Преступление и наказание</label>
-                <label><input type="checkbox" name="books" value="Мастер и Маргарита"> Мастер и Маргарита</label>
-                <label><input type="checkbox" name="books" value="Гордость и предубеждение"> Гордость и предубеждение</label>
-                <label><input type="checkbox" name="books" value="1984"> 1984</label>
-                <label><input type="checkbox" name="books" value="Война и мир"> Война и мир</label>
-                <label><input type="checkbox" name="books" value="Улисс"> Улисс</label>
-            </div>
+            <label>📚 Книги для покупки (флажки):</label><br>
+            <label><input type="checkbox" name="books" value="Преступление и наказание"> Преступление и наказание</label><br>
+            <label><input type="checkbox" name="books" value="Мастер и Маргарита"> Мастер и Маргарита</label><br>
+            <label><input type="checkbox" name="books" value="Гордость и предубеждение"> Гордость и предубеждение</label><br>
+            <label><input type="checkbox" name="books" value="1984"> 1984</label><br>
+            <label><input type="checkbox" name="books" value="Война и мир"> Война и мир</label><br>
+            <label><input type="checkbox" name="books" value="Улисс"> Улисс</label>
         </div>
         
         <div>
-            <label>Форма оплаты (селекторные переключатели):</label>
-            <div>
-                <label><input type="radio" name="payment" value="cash"> Наличными при получении</label>
-                <label><input type="radio" name="payment" value="card"> Картой при получении</label>
-            </div>
+            <label>Форма оплаты (селекторные переключатели):</label><br>
+            <label><input type="radio" name="payment" value="cash"> Наличными при получении</label>
+            <label><input type="radio" name="payment" value="card"> Картой при получении</label>
         </div>
         
         <div>
-            <label>Выберите день доставки (выпадающий список):</label>
+            <label>Выберите день доставки (выпадающий список):</label><br>
             <select name="delivery_day">
                 <option>Понедельник</option>
                 <option>Среда</option>
@@ -67,7 +66,7 @@
         </div>
         
         <div>
-            <label>Комментарий курьеру (многострочное поле ввода):</label>
+            <label>Комментарий курьеру (многострочное поле ввода):</label><br>
             <textarea rows="3" name="comment" placeholder="Домофон, этаж, особые пожелания..."></textarea>
         </div>
         
